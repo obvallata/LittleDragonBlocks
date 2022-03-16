@@ -22,7 +22,11 @@ dragon_field.set_view(200, 200, 95)
 # Драконы в общем
 from dragon import Dragon
 all_sprites = pygame.sprite.Group()
-dragon_one = Dragon('img_1.png', dragon_field.cell_size, dragon_field.cell_size)
+dragon_shape = [[1, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0]]
+dragon_one = Dragon('img_1.png', dragon_field.cell_size, dragon_field.cell_size, dragon_shape)
 all_sprites.add(dragon_one)
 
 
@@ -32,12 +36,8 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            print('Poped', event.button)
-        elif event.type == pygame.MOUSEMOTION:
-            print("Move", event.pos)
 
-    all_sprites.update()
+    all_sprites.update(200, 200, 95 * AMOUNT_OF_CELLS, screen)
 
     screen.fill((255, 204, 255))
     dragon_field.render(screen)
