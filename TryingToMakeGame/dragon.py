@@ -2,10 +2,6 @@ import pygame
 import os
 
 
-def green_cell(x_pos, y_pos, cell_size, screen):
-    pygame.draw.rect(screen, (204, 255, 153), pygame.Rect(x_pos, y_pos, cell_size, cell_size))
-    pygame.draw.rect(screen, (0, 204, 0), pygame.Rect(x_pos, y_pos, cell_size, cell_size), 2)
-
 def load_image(name, height, width):
     game_folder = os.path.dirname(__file__)
     img_folder = os.path.join(game_folder, 'img')
@@ -55,12 +51,12 @@ class Dragon(pygame.sprite.Sprite):
                     diff_y = (field_top + field_size - self.rect.y) // (field_size / AMOUNT_OF_CELLS)
                     active_cell = [diff_x, diff_y]
                     fits = True
-                    for i in range(1, AMOUNT_OF_CELLS):
-                        for j in range(1, AMOUNT_OF_CELLS):
+                    for i in range(AMOUNT_OF_CELLS):
+                        for j in range(AMOUNT_OF_CELLS):
                             if self.shape[i][j] == 1:
-                                if active_cell[0] - i < 0:
+                                if active_cell[0] - j < 0:
                                     fits = False
-                                if active_cell[1] - j < 0:
+                                if active_cell[1] - i < 0:
                                     fits = False
                     if fits:
                         self.image = load_image("img.png", self.size_y, self.size_x)

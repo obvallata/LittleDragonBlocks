@@ -22,9 +22,9 @@ dragon_field.set_view(200, 200, 95)
 # Драконы в общем
 from dragon import Dragon
 all_sprites = pygame.sprite.Group()
-dragon_shape = [[1, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 0],
+dragon_shape = [[1, 1, 1, 0],
+                [0, 1, 1, 0],
+                [0, 1, 1, 0],
                 [0, 0, 0, 0]]
 dragon_one = Dragon('img_1.png', dragon_field.cell_size, dragon_field.cell_size, dragon_shape)
 all_sprites.add(dragon_one)
