@@ -42,9 +42,9 @@ class Dragon(pygame.sprite.Sprite):
         if self.is_active:
             self.rect.x = mouse_state_abs[0]
             self.rect.y = mouse_state_abs[1]
-            mouse_state_rel = pygame.mouse.get_rel()
-            self.rect.x += mouse_state_rel[0]
-            self.rect.y += mouse_state_rel[1]
+            # mouse_state_rel = pygame.mouse.get_rel()
+            # self.rect.x += mouse_state_rel[0]
+            # self.rect.y += mouse_state_rel[1]
             if field_left <= self.rect.x <= field_left + field_size:
                 if field_top <= self.rect.y <= field_top + field_size:
                     diff_x = (field_left + field_size - self.rect.x) // (field_size / AMOUNT_OF_CELLS)
