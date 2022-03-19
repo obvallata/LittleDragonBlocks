@@ -1,6 +1,6 @@
 import pygame
 from field import Field
-
+from dragon import Dragon
 
 # инициализация Pygame:
 pygame.init()
@@ -18,13 +18,11 @@ clock = pygame.time.Clock()
 # Дальше клетчатое поле
 dragon_field = Field(AMOUNT_OF_CELLS, AMOUNT_OF_CELLS)
 dragon_field.set_view(200, 200, 95)
-# Да, этот импорт должен быть тут! Да, костыль! Да, потом исправим!
 # Драконы в общем
-from dragon import Dragon
 all_sprites = pygame.sprite.Group()
-dragon_shape = [[1, 1, 1, 0],
-                [0, 1, 1, 0],
-                [0, 1, 1, 0],
+dragon_shape = [[1, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
                 [0, 0, 0, 0]]
 dragon_one = Dragon('img_1.png', dragon_field.cell_size, dragon_field.cell_size, dragon_shape)
 all_sprites.add(dragon_one)

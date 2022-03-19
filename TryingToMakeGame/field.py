@@ -1,7 +1,7 @@
 import pygame
 
 
-class Field():
+class Field:
     # создание поля
     def __init__(self, width, height):
         self.width = width
@@ -23,7 +23,7 @@ class Field():
         for i in range(self.height):
             x_pos = self.left
             for j in range(self.width):
-                pygame.draw.rect(screen, (204, 255, 153), pygame.Rect(x_pos, y_pos, self.cell_size, self.cell_size))
+                pygame.draw.rect(screen, (255, 255, 153), pygame.Rect(x_pos, y_pos, self.cell_size, self.cell_size))
                 pygame.draw.rect(screen, (0, 204, 0), pygame.Rect(x_pos, y_pos, self.cell_size, self.cell_size), 2)
                 x_pos += self.cell_size
             y_pos += self.cell_size
