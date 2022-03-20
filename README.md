@@ -1,8 +1,8 @@
 # LittleDragonBlocks
-Here we try to make some nice and relaxing game
+Here we try to make some nice and relaxing gam
 
 To start the game you should:
-0. Download this project, change your current directory to the project directory
+0. Download this project, change your current directory to the project directory, then got to TryingToMakeGame
 1. Write "pip install -r requirements.txt" in your terminal
 2. Write "python3 main.py" in your terminal
 
