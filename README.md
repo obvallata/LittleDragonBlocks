@@ -1,5 +1,5 @@
 # LittleDragonBlocks
-Here we try to make some nice and relaxing gam
+Here we try to make some nice and relaxing game
 
 To start the game you should:
 0. Download this project, change your current directory to the project directory, then got to TryingToMakeGame
