@@ -2,23 +2,16 @@ import pygame
 from field import Field
 from dragon import Dragon
 
-# инициализация Pygame:
 pygame.init()
-# размеры окна:
 WIDTH = 1024
 HEIGHT = 768
 FPS = 60
 AMOUNT_OF_CELLS = 4
 size = width, height = WIDTH, HEIGHT
 screen = pygame.display.set_mode(size)
-# x_pos = 0
-# v = 20
-# пикселей в секунду clock = pygame.time.Clock()
 clock = pygame.time.Clock()
-# Дальше клетчатое поле
 dragon_field = Field(AMOUNT_OF_CELLS, AMOUNT_OF_CELLS)
 dragon_field.set_view(200, 200, 95)
-# Драконы в общем
 all_sprites = pygame.sprite.Group()
 dragon_shape = [[1, 0, 0, 0],
                 [0, 0, 0, 0],
@@ -30,7 +23,6 @@ all_sprites.add(dragon_one)
 
 running = True
 while running:
-    # ТУТ МБ ВМЕСТО get wait!!
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False

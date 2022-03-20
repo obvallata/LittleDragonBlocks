@@ -2,17 +2,14 @@ import pygame
 
 
 class Field:
-    # создание поля
     def __init__(self, width, height):
         self.width = width
         self.height = height
         self.field = [[0] * width for _ in range(height)]
-        # значения по умолчанию
         self.left = 0
         self.top = 0
         self.cell_size = 30
 
-    # настройка внешнего вида
     def set_view(self, left, top, cell_size):
         self.left = left
         self.top = top

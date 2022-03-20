@@ -5,9 +5,7 @@ AMOUNT_OF_CELLS = 4
 
 
 class Dragon(pygame.sprite.Sprite):
-
     def __init__(self, name, height, width, form):
-        # НЕОБХОДИМО вызвать конструктор родительского класса Sprite. Это очень важно!!!
         pygame.sprite.Sprite.__init__(self)
         self.image = load_image(name, height, width)
         self.rect = self.image.get_rect()
