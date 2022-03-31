@@ -45,7 +45,7 @@ class Dragon(pygame.sprite.Sprite):
                                 fits = False
             else:
                 fits = False
-            img_to_load = "img_1.png" * (not fits) + "img.png" * fits
+            img_to_load = "img_1.png" * (not fits) + "Vladik_Artwork.png" * fits
             self.image = load_image(img_to_load, self.size_y, self.size_x)
         keystate = pygame.key.get_pressed()
         if keystate[pygame.K_f]:
