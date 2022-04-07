@@ -1,6 +1,6 @@
 import pygame
 from load_image import load_image
-from common_data import AMOUNT_OF_CELLS, CELL_SIZE
+from common_data import AMOUNT_OF_CELLS, CELL_SIZE, IMAGES
 from field import Field
 
 START_POS_X = 800
@@ -10,7 +10,7 @@ START_POS_Y = 100
 class Dragon(pygame.sprite.Sprite):
     def __init__(self, form, num_dragon=1, width=CELL_SIZE, height=CELL_SIZE):
         pygame.sprite.Sprite.__init__(self)
-        self.image = load_image('img_1.png', height, width)
+        self.image = load_image(IMAGES[num_dragon - 1], height, width)
         self.rect = self.image.get_rect()
         self.num = num_dragon
         self.rect.x = START_POS_X
@@ -53,9 +53,9 @@ class Dragon(pygame.sprite.Sprite):
                 self.fits = False
             if self.fits:
                 self.pos_on_field = active_cell
-            img_to_load = "img_1.png" * (not self.fits) + "Vladik_Artwork.png" * self.fits
+            # img_to_load = "img_1.png" * (not self.fits) + "Vladik_Artwork.png" * self.fits
 
-            self.image = load_image(img_to_load, self.size_y, self.size_x)
+            # self.image = load_image(img_to_load, self.size_y, self.size_x)
         key_state = pygame.key.get_pressed()
         if key_state[pygame.K_f]:
             if self.fits and self.pos_on_field != [-1, -1]:
