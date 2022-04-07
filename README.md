@@ -1,5 +1,6 @@
 # LittleDragonBlocks
 Here we try to make some nice and relaxing game
+<<<<<<< HEAD
 
 To start the game you should:
 0. Download this project, change your current directory to the project directory, then got to TryingToMakeGame
@@ -22,3 +23,5 @@ To talk about the architecture let's switch into Russian
 Важно также упомянуть, что в дальнейшем изображения будут заменены, весь дизайн станет полностью оригинальным.
 
 Код, UML-диаграмма, README.md тоже будут обновлятся в согласовании с развитием проекта.
+=======
+>>>>>>> 69378789ce42494208e3dc369fe4aeb6a40614be
