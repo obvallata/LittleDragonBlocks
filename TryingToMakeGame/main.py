@@ -10,5 +10,6 @@ screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 
 running = True
-running = run_lvl(running, screen, clock)
+running = run_lvl(0, running, screen, clock)
+running = run_lvl(1, running, screen, clock)
 pygame.quit()
