@@ -1,5 +1,6 @@
 import pygame
-from common_data import WIDTH, HEIGHT, FPS, AMOUNT_OF_CELLS, CELL_SIZE, SHAPES, FIELD_TOP, FIELD_LEFT, AMOUNT_OF_DRAGONS
+from common_data import WIDTH, HEIGHT, FPS, AMOUNT_OF_CELLS, CELL_SIZE
+from common_data import SHAPES, FIELD_TOP, FIELD_LEFT, AMOUNT_OF_DRAGONS, DRAGON_SIZES
 from field import Field
 from dragon import Dragon
 
@@ -10,7 +11,9 @@ def run_lvl(lvl_num, running, screen, clock):
     all_sprites = pygame.sprite.Group()
     dragons_status = []
     for i in range(AMOUNT_OF_DRAGONS[lvl_num]):
-        dragons_status.append(Dragon(SHAPES[lvl_num][i], i + 1))
+        print(DRAGON_SIZES[i])
+        dragons_status.append(Dragon(SHAPES[lvl_num][i], i + 1, DRAGON_SIZES[lvl_num][i][0] * CELL_SIZE,
+                                     DRAGON_SIZES[lvl_num][i][1] * CELL_SIZE))
         all_sprites.add(dragons_status[i])
     next_run = False
     while running:
