@@ -26,7 +26,7 @@ class Dragon(pygame.sprite.Sprite):
             for j in range(AMOUNT_OF_CELLS):
                 self.shape[i][j] = form[i][j]
 
-    def update(self, field, field_size, screen):
+    def update(self, field, field_size):
         field_left = field.left
         field_top = field.top
         mouse_state_abs = pygame.mouse.get_pos()
@@ -53,9 +53,6 @@ class Dragon(pygame.sprite.Sprite):
                 self.fits = False
             if self.fits:
                 self.pos_on_field = active_cell
-            # img_to_load = "img_1.png" * (not self.fits) + "Vladik_Artwork.png" * self.fits
-
-            # self.image = load_image(img_to_load, self.size_y, self.size_x)
         key_state = pygame.key.get_pressed()
         if key_state[pygame.K_f]:
             if self.fits and self.pos_on_field != [-1, -1]:
@@ -70,3 +67,9 @@ class Dragon(pygame.sprite.Sprite):
                 self.rect.x = START_POS_X
                 self.rect.y = START_POS_Y + self.size_y * self.num
             self.is_active = False
+        if self.ready and self.is_active:
+            for i in range(AMOUNT_OF_CELLS):
+                for j in range(AMOUNT_OF_CELLS):
+                    if self.shape[i][j] == 1:
+                        field.field[i + (3 - self.pos_on_field[1])][j + (3 - self.pos_on_field[0])] = 0
+            self.ready = False
