@@ -29,3 +29,9 @@ class Field:
 
     def get_cell_pos(self, cell_number):
         return [self.cell_size[0] * cell_number, self.cell_size[1] * cell_number]
+
+    def set_borders(self, positions):
+        for i in range(AMOUNT_OF_CELLS):
+            for j in range(AMOUNT_OF_CELLS):
+                if positions[i][j] == 1:
+                    self.field[i][j] = 2
