@@ -1,15 +1,15 @@
 import pygame
-from common_data import AMOUNT_OF_CELLS, CELL_SIZE
+from common_data import info
 
 
 class Field:
-    def __init__(self, width=AMOUNT_OF_CELLS, height=AMOUNT_OF_CELLS):
+    def __init__(self, width=info.AMOUNT_OF_CELLS, height=info.AMOUNT_OF_CELLS):
         self.width = width
         self.height = height
         self.field = [[0] * width for _ in range(height)]
         self.left = 0
         self.top = 0
-        self.cell_size = CELL_SIZE
+        self.cell_size = info.CELL_SIZE
 
     def set_view(self, left, top):
         self.left = left
@@ -31,7 +31,7 @@ class Field:
         return [self.cell_size[0] * cell_number, self.cell_size[1] * cell_number]
 
     def set_borders(self, positions):
-        for i in range(AMOUNT_OF_CELLS):
-            for j in range(AMOUNT_OF_CELLS):
+        for i in range(info.AMOUNT_OF_CELLS):
+            for j in range(info.AMOUNT_OF_CELLS):
                 if positions[i][j] == 1:
                     self.field[i][j] = 2
