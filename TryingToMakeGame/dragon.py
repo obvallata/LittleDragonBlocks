@@ -3,20 +3,21 @@ from load_image import load_image
 from common_data import AMOUNT_OF_CELLS, CELL_SIZE, IMAGES
 from field import Field
 
-START_POS_X = 800
-START_POS_Y = 100
+START_POS_X = 700
+START_POS_Y = 20
+STEP = 130
 
 
 class Dragon(pygame.sprite.Sprite):
-    def __init__(self, form, num_dragon=1, width=CELL_SIZE, height=CELL_SIZE):
+    def __init__(self, lvl_num, form, num_dragon=1, width=CELL_SIZE, height=CELL_SIZE):
         pygame.sprite.Sprite.__init__(self)
-        self.image = load_image(IMAGES[num_dragon - 1], height, width)
+        self.image = load_image(IMAGES[lvl_num][num_dragon - 1], height, width)
         self.rect = self.image.get_rect()
         self.num = num_dragon
         self.rect.x = START_POS_X
-        self.rect.y = START_POS_Y + height * num_dragon
-        self.size_x = width
-        self.size_y = height
+        self.rect.y = START_POS_Y + (num_dragon - 1) * STEP
+        self.size_x = height
+        self.size_y = width
         self.is_active = False
         self.fits = True
         self.ready = False
@@ -65,7 +66,7 @@ class Dragon(pygame.sprite.Sprite):
                             field.field[i + (3 - self.pos_on_field[1])][j + (3 - self.pos_on_field[0])] = 2
             else:
                 self.rect.x = START_POS_X
-                self.rect.y = START_POS_Y + self.size_y * self.num
+                self.rect.y = START_POS_Y + (self.num - 1) * STEP
             self.is_active = False
         if self.ready and self.is_active:
             for i in range(AMOUNT_OF_CELLS):

@@ -14,5 +14,7 @@ while running:
     running = menu_run(running, screen, clock)
     running = run_lvl(0, running, screen, clock)
     running = run_lvl(1, running, screen, clock)
-    # running = run_lvl(2, running, screen, clock)
+    running = run_lvl(2, running, screen, clock)
+    running = run_lvl(3, running, screen, clock)
+    running = run_lvl(4, running, screen, clock)
 pygame.quit()

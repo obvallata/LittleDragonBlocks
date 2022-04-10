@@ -15,6 +15,6 @@ class Border(pygame.sprite.Sprite):
             for j in range(AMOUNT_OF_CELLS):
                 if positions[i][j] == 1:
                     if counter == num:
-                        self.rect.x = FIELD_LEFT[0] + i * CELL_SIZE
-                        self.rect.y = FIELD_TOP[0] + j * CELL_SIZE
+                        self.rect.x = FIELD_LEFT[0] + j * CELL_SIZE
+                        self.rect.y = FIELD_TOP[0] + i * CELL_SIZE
                     counter += 1
