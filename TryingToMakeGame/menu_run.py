@@ -1,12 +1,12 @@
 import pygame
 from button import Button
-from common_data import refresh_menu, WIDTH, HEIGHT, FPS
+from common_data import refresh_menu, info
 
 
 def menu_run(running, screen, clock):
     refresh_menu(screen)
-    start_button = Button(screen, WIDTH / 2 - 160, HEIGHT / 2 - 100, 300, 100, "START", 32, 85, 27)
-    quit_button = Button(screen, WIDTH / 2 - 160, HEIGHT / 2, 300, 100, "NOT START", 32, 85, 27)
+    start_button = Button(screen, info.WIDTH / 2 - 160, info.HEIGHT / 2 - 100, 300, 100, "START", 32, 85, 27)
+    quit_button = Button(screen, info.WIDTH / 2 - 160, info.HEIGHT / 2, 300, 100, "NOT START", 32, 85, 27)
     start_button.draw()
     next_run = False
     while running:
@@ -22,5 +22,5 @@ def menu_run(running, screen, clock):
         if quit_button.counter >= 1:
             running = False
         pygame.display.flip()
-        clock.tick(FPS)
+        clock.tick(info.FPS)
     return next_run

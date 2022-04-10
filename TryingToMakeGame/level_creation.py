@@ -1,7 +1,5 @@
 import pygame
-from common_data import WIDTH, HEIGHT, FPS, AMOUNT_OF_CELLS, CELL_SIZE
-from common_data import SHAPES, FIELD_TOP, FIELD_LEFT, AMOUNT_OF_DRAGONS
-from common_data import DRAGON_SIZES, AMOUNT_OF_BORDERS, BORDERS_PLACES, refresh_text
+from common_data import info, refresh_text
 from field import Field
 from dragon import Dragon
 from border import Border
@@ -9,17 +7,18 @@ from border import Border
 
 def run_lvl(lvl_num, running, screen, clock):
     dragon_field = Field()
-    dragon_field.set_view(FIELD_LEFT[lvl_num], FIELD_TOP[lvl_num])
+    dragon_field.set_view(info.get_field_left(lvl_num), info.get_field_top(lvl_num))
     all_sprites = pygame.sprite.Group()
     borders = pygame.sprite.Group()
     dragons_status = []
-    for i in range(AMOUNT_OF_DRAGONS[lvl_num]):
-        dragons_status.append(Dragon(lvl_num, SHAPES[lvl_num][i], i + 1, DRAGON_SIZES[lvl_num][i][0] * CELL_SIZE,
-                                     DRAGON_SIZES[lvl_num][i][1] * CELL_SIZE))
+    for i in range(info.get_amount_of_dragons(lvl_num)):
+        dragons_status.append(Dragon(lvl_num, info.get_shapes(lvl_num)[i], i + 1,
+                                     info.get_dragon_sizes(lvl_num)[i][0] * info.CELL_SIZE,
+                                     info.get_dragon_sizes(lvl_num)[i][1] * info.CELL_SIZE))
         all_sprites.add(dragons_status[i])
-    for i in range(AMOUNT_OF_BORDERS[lvl_num]):
-        borders.add(Border(BORDERS_PLACES[lvl_num], i))
-    dragon_field.set_borders(BORDERS_PLACES[lvl_num])
+    for i in range(info.get_amount_of_borders(lvl_num)):
+        borders.add(Border(info.get_border_places(lvl_num), i))
+    dragon_field.set_borders(info.get_border_places(lvl_num))
     next_run = False
     while running:
         for event in pygame.event.get():
@@ -27,7 +26,7 @@ def run_lvl(lvl_num, running, screen, clock):
                 running = False
                 next_run = False
 
-        all_sprites.update(dragon_field, CELL_SIZE * AMOUNT_OF_CELLS)
+        all_sprites.update(dragon_field, info.CELL_SIZE * info.AMOUNT_OF_CELLS)
 
         screen.fill((255, 204, 255))
         refresh_text(screen, lvl_num)
@@ -35,7 +34,7 @@ def run_lvl(lvl_num, running, screen, clock):
         all_sprites.draw(screen)
         borders.draw(screen)
         can_we_go_next_lvl = True
-        for i in range(AMOUNT_OF_DRAGONS[lvl_num]):
+        for i in range(info.get_amount_of_dragons(lvl_num)):
             if not dragons_status[i].ready:
                 can_we_go_next_lvl = False
                 break
@@ -43,5 +42,5 @@ def run_lvl(lvl_num, running, screen, clock):
             next_run = True
             running = False
         pygame.display.flip()
-        clock.tick(FPS)
+        clock.tick(info.FPS)
     return next_run

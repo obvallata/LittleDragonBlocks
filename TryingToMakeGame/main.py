@@ -1,14 +1,14 @@
 import pygame
-from common_data import AMOUNT_OF_CELLS, WIDTH, HEIGHT, FPS
+from common_data import Globals
 from field import Field
 from dragon import Dragon
 from level_creation import run_lvl
 from menu_run import menu_run
 pygame.init()
-size = width, height = WIDTH, HEIGHT
+info = Globals()
+size = width, height = info.WIDTH, info.HEIGHT
 screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
-
 running = True
 while running:
     running = menu_run(running, screen, clock)
