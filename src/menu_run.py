@@ -1,6 +1,6 @@
 import pygame
-from button import Button
-from common_data import refresh_menu, info
+from src.button import Button
+from src.common_data import refresh_menu, info
 
 
 def menu_run(running, screen, clock):

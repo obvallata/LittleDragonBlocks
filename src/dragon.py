@@ -1,7 +1,7 @@
 import pygame
-from load_image import load_image
-from common_data import info
-from field import Field
+from src.load_image import load_image
+from src.common_data import info
+from src.field import Field
 
 START_POS_X = 700
 START_POS_Y = 20

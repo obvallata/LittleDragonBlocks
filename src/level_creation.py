@@ -1,8 +1,8 @@
 import pygame
-from common_data import info, refresh_text
-from field import Field
-from dragon import Dragon
-from border import Border
+from src.common_data import info, refresh_text
+from src.field import Field
+from src.dragon import Dragon
+from src.border import Border
 
 
 def run_lvl(lvl_num, running, screen, clock):

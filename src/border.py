@@ -1,6 +1,6 @@
 import pygame
-from common_data import info
-from load_image import load_image
+from src.common_data import info
+from src.load_image import load_image
 
 
 class Border(pygame.sprite.Sprite):
@@ -8,7 +8,7 @@ class Border(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.width = info.CELL_SIZE
         self.height = info.CELL_SIZE
-        self.image = load_image("bush.png", self.width, self.height)
+        self.image = load_image("../img/bush.png", self.width, self.height)
         self.rect = self.image.get_rect()
         counter = 0
         for i in range(info.AMOUNT_OF_CELLS):
