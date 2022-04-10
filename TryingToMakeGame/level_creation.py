@@ -1,7 +1,7 @@
 import pygame
 from common_data import WIDTH, HEIGHT, FPS, AMOUNT_OF_CELLS, CELL_SIZE
 from common_data import SHAPES, FIELD_TOP, FIELD_LEFT, AMOUNT_OF_DRAGONS
-from common_data import DRAGON_SIZES, AMOUNT_OF_BORDERS, BORDERS_PLACES
+from common_data import DRAGON_SIZES, AMOUNT_OF_BORDERS, BORDERS_PLACES, refresh_text
 from field import Field
 from dragon import Dragon
 from border import Border
@@ -14,7 +14,7 @@ def run_lvl(lvl_num, running, screen, clock):
     borders = pygame.sprite.Group()
     dragons_status = []
     for i in range(AMOUNT_OF_DRAGONS[lvl_num]):
-        dragons_status.append(Dragon(SHAPES[lvl_num][i], i + 1, DRAGON_SIZES[lvl_num][i][0] * CELL_SIZE,
+        dragons_status.append(Dragon(lvl_num, SHAPES[lvl_num][i], i + 1, DRAGON_SIZES[lvl_num][i][0] * CELL_SIZE,
                                      DRAGON_SIZES[lvl_num][i][1] * CELL_SIZE))
         all_sprites.add(dragons_status[i])
     for i in range(AMOUNT_OF_BORDERS[lvl_num]):
@@ -30,6 +30,7 @@ def run_lvl(lvl_num, running, screen, clock):
         all_sprites.update(dragon_field, CELL_SIZE * AMOUNT_OF_CELLS)
 
         screen.fill((255, 204, 255))
+        refresh_text(screen, lvl_num)
         dragon_field.render(screen)
         all_sprites.draw(screen)
         borders.draw(screen)
