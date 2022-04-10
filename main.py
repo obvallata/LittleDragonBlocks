@@ -1,9 +1,11 @@
 import pygame
-from common_data import Globals
-from field import Field
-from dragon import Dragon
-from level_creation import run_lvl
-from menu_run import menu_run
+import sys
+
+from src.common_data import Globals
+from src.field import Field
+from src.dragon import Dragon
+from src.level_creation import run_lvl
+from src.menu_run import menu_run
 pygame.init()
 info = Globals()
 size = width, height = info.WIDTH, info.HEIGHT

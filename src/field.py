@@ -1,5 +1,5 @@
 import pygame
-from common_data import info
+from src.common_data import info
 
 
 class Field:
