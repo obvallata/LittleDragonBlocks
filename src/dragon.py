@@ -19,6 +19,7 @@ class Dragon(pygame.sprite.Sprite):
         self.size_x = height
         self.size_y = width
         self.is_active = False
+        info.active_dragon_exists = False
         self.fits = True
         self.ready = False
         self.pos_on_field = [-1, -1]
@@ -33,7 +34,9 @@ class Dragon(pygame.sprite.Sprite):
         mouse_state_abs = pygame.mouse.get_pos()
         if (self.rect.x <= mouse_state_abs[0] <= self.rect.x + self.size_x and
                 self.rect.y <= mouse_state_abs[1] <= self.rect.y + self.size_y and pygame.mouse.get_pressed()[0]):
-            self.is_active = True
+            if not info.active_dragon_exists:
+                self.is_active = True
+                info.active_dragon_exists = True
         if self.is_active:
             self.rect.x = mouse_state_abs[0]
             self.rect.y = mouse_state_abs[1]
@@ -54,8 +57,8 @@ class Dragon(pygame.sprite.Sprite):
                 self.fits = False
             if self.fits:
                 self.pos_on_field = active_cell
-        key_state = pygame.key.get_pressed()
-        if key_state[pygame.K_f]:
+        key_state = pygame.mouse.get_pressed()[2]
+        if key_state:
             if self.fits and self.pos_on_field != [-1, -1]:
                 self.rect.x = (3 - self.pos_on_field[0]) * info.CELL_SIZE + field_left
                 self.rect.y = (3 - self.pos_on_field[1]) * info.CELL_SIZE + field_top
@@ -68,6 +71,7 @@ class Dragon(pygame.sprite.Sprite):
                 self.rect.x = START_POS_X
                 self.rect.y = START_POS_Y + (self.num - 1) * STEP
             self.is_active = False
+            info.active_dragon_exists = False
         if self.ready and self.is_active:
             for i in range(info.AMOUNT_OF_CELLS):
                 for j in range(info.AMOUNT_OF_CELLS):

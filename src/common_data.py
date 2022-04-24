@@ -30,6 +30,7 @@ UNIQUE_SHAPES = [
 
 class Globals:
     def __init__(self):
+        self.active_dragon_exists = False
         self.AMOUNT_OF_CELLS = 4
         self.WIDTH = 1024
         self.HEIGHT = 768

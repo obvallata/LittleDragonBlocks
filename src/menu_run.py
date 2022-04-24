@@ -6,7 +6,7 @@ from src.common_data import refresh_menu, info
 def menu_run(running, screen, clock):
     refresh_menu(screen)
     start_button = Button(screen, info.WIDTH / 2 - 160, info.HEIGHT / 2 - 100, 300, 100, "START", 32, 85, 27)
-    quit_button = Button(screen, info.WIDTH / 2 - 160, info.HEIGHT / 2, 300, 100, "NOT START", 32, 85, 27)
+    quit_button = Button(screen, info.WIDTH / 2 - 160, info.HEIGHT / 2, 300, 100, "EXIT", 32, 85, 27)
     start_button.draw()
     next_run = False
     while running:
