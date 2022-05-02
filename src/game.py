@@ -5,9 +5,9 @@ import pygame
 
 
 class Game:
-    def __init__(self):
+    def __init__(self, interface):
         self.game_info = Globals()
-        self.interface = Interface()
+        self.interface = interface
 
     def start(self):
         pygame.init()
