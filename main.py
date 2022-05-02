@@ -1,5 +1,8 @@
 from src.game import Game
+from src.interface import Interface
+
 
 if __name__ == "__main__":
-    game = Game()
+    interface = Interface()
+    game = Game(interface)
     game.start()
