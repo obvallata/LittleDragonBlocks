@@ -1,22 +1,8 @@
-import pygame
-import sys
+from src.game import Game
+from src.interface import Interface
 
-from src.common_data import Globals
-from src.field import Field
-from src.dragon import Dragon
-from src.level_creation import run_lvl
-from src.menu_run import menu_run
-pygame.init()
-info = Globals()
-size = width, height = info.WIDTH, info.HEIGHT
-screen = pygame.display.set_mode(size)
-clock = pygame.time.Clock()
-running = True
-while running:
-    running = menu_run(running, screen, clock)
-    running = run_lvl(0, running, screen, clock)
-    running = run_lvl(1, running, screen, clock)
-    running = run_lvl(2, running, screen, clock)
-    running = run_lvl(3, running, screen, clock)
-    running = run_lvl(4, running, screen, clock)
-pygame.quit()
+
+if __name__ == "__main__":
+    interface = Interface()
+    game = Game(interface)
+    game.start()
