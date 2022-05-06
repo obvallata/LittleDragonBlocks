@@ -2,6 +2,7 @@
 Here we try to make some nice and relaxing game
 
 To start the game you should:
+
 0. Download a deb package of the project and сhange the directory to the one where the package was downloaded 
 1. Write "sudo apt install ./LittleDragonBlocks.deb" in your terminal
 
