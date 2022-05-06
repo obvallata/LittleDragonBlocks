@@ -89,7 +89,7 @@ class Interface:
                     next_run = False
             all_sprites.update(game_info, dragon_field, game_info.CELL_SIZE * game_info.AMOUNT_OF_CELLS)
             self.screen.fill((255, 204, 255))
-            self.refresh_time(round(seconds, 1))
+            self.refresh_time(round(seconds, 1), game_info.TIME_LIMITS[lvl.num])
             self.refresh_text(game_info, lvl.num)
             self.refresh_score(game_info)
             self.render(dragon_field)
