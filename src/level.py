@@ -29,4 +29,4 @@ class Level:
         self.borders_places = game_info.get_border_places(self.num)
         if running:
             return self.run_lvl(interface, game_info)
-        return False
+        return False, 0

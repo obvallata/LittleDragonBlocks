@@ -30,6 +30,7 @@ UNIQUE_SHAPES = [
 
 class Globals:
     def __init__(self):
+        self.points = 0
         self.active_dragon_exists = False
         self.AMOUNT_OF_CELLS = 4
         self.WIDTH = 1024
@@ -40,6 +41,7 @@ class Globals:
         self.FIELD_LEFT = [200, 200, 200, 200, 200]
         self.AMOUNT_OF_DRAGONS = [1, 2, 5, 3, 4]
         self.AMOUNT_OF_BORDERS = [12, 11, 1, 1, 4]
+        self.TIME_LIMITS = [10, 10, 20, 20, 20]
         self.DRAGON_SIZES = [[[1, 1]],
                              [[1, 1], [2, 2]],
                              [[1, 1], [2, 2], [2, 2], [1, 2], [2, 3]],

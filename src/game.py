@@ -20,7 +20,9 @@ class Game:
         while running and level_num < 5:
             current_level = Level()
             current_level.set_num(level_num)
-            running = current_level.__call__(self.interface, self.game_info, running)
+            running, new_score = current_level.__call__(self.interface, self.game_info, running)
+            self.game_info.points += new_score
+            self.game_info.points = round(self.game_info.points, 2)
             level_num += 1
             if level_num == 5:
                 level_num = 0
